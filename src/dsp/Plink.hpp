@@ -308,7 +308,7 @@ struct PlinkEngine {
 	// output stage
 	HalfBand os;
 	float limEnv = 0.f;
-	float objGain[OBJ_COUNT] = {1.27f, 2.51f, 2.86f, 0.395f, 0.219f, 1.086f};   // §5.5 level calibration (default hit ≈ 5 V)
+	float objGain[OBJ_COUNT] = {1.53f, 2.531f, 2.864f, 0.411f, 0.22f, 1.357f};   // §5.5 level calibration (default hit ≈ 5 V)
 
 	PlinkEngine() {
 		for (auto& b : bank) b.init();
@@ -574,7 +574,7 @@ struct PlinkEngine {
 			v.re[k] = nr; v.im[k] = ni;
 			acc += ni;
 		}
-		float o = (acc + EXCITER_LEAK * (em * 200.f + en)) * OUT_SCALE * v.volLevel;
+		float o = (acc + EXCITER_LEAK * (em * 0.5f * (float) v.malletN + en)) * OUT_SCALE * v.volLevel;   // leak: mallet pulse at unit peak
 		if (set.velMode == 2 && v.live) v.volLevel = clampf(in.vel[std::min(v.channel, 7)] / 5.f, 0.f, 1.f);
 		if (v.fadeStep > 0.f) {
 			v.fade -= v.fadeStep;

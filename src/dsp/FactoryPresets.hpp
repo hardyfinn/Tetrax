@@ -71,7 +71,7 @@ inline void loadFactoryBank(Preset* bank) {
 	const FactoryRow* rows = factoryRows(n);
 	for (int i = 0; i < BANK_SIZE; i++) bank[i].init();
 	// Output gain per slot (dB), measured so each accented hit peaks near 3.5 V (§5.14 render test).
-	static const float gains[32] = {-4.0f, -4.5f, -8.0f, 1.5f, -1.0f, -1.0f, -6.0f, -6.0f, -2.0f, -2.0f, 1.0f, 7.0f, -3.0f, -3.5f, -7.5f, -4.5f, -1.5f, -3.5f, -2.0f, -3.5f, -8.0f, 11.5f, -1.5f, -1.5f, 0.5f, -9.5f, -11.0f, 0.0f, -10.0f, -10.5f, 22.0f, 7.5f};
+	static const float gains[32] = {-3.5f, -4.0f, -8.5f, 0.0f, -1.0f, -1.0f, -1.5f, 9.5f, 0.0f, 0.0f, 1.5f, 4.5f, -3.5f, -3.5f, -0.5f, 15.5f, -1.5f, -3.5f, -2.0f, -2.5f, -7.5f, 3.5f, -0.5f, 1.5f, -1.0f, -7.0f, -8.0f, 0.0f, -2.0f, -3.5f, 14.5f, 5.0f};
 	for (int i = 0; i < n; i++) if (rows[i].kitOf < 0) { rowToPreset(rows[i], bank[i]); bank[i].v[P_GAIN] = gains[i]; }
 	for (int i = 0; i < n; i++) {
 		if (rows[i].kitOf < 0) continue;

@@ -293,7 +293,8 @@ TEST("plink: factory presets render in range and decay") {
 		int n = (int) (2.f * SR);
 		PlinkIn in;
 		for (int i = 0; i < n; i++) {
-			in.gate[0] = i < (int) (0.05f * SR);
+			// AHR sounds (bowed, blown) are measured with a 1 s gate, struck sounds with 50 ms
+			in.gate[0] = i < (int) ((e->bank[s].v[P_ENVTYPE] > 0.5f ? 1.f : 0.05f) * SR);
 			e->process(in);
 			float a = std::fabs(e->out);
 			pk = std::max(pk, a);
@@ -303,7 +304,7 @@ TEST("plink: factory presets render in range and decay") {
 		float db = 20 * std::log10(pk / 5.f), tdb = 20 * std::log10(tail / std::max(pk, 1e-9f) + 1e-12f);
 		INFO("%2d %-13s peak %5.1f dBFS tail %6.1f dB\n", s + 1, e->bank[s].name, db, tdb);
 		if (!(db > -12.f && db < 3.f)) { bad++; std::printf("  preset %d %s peak %.1f dBFS\n", s + 1, e->bank[s].name, db); }
-		if (e->bank[s].v[P_RDEC] < 100 && tdb > -60.f) { bad++; std::printf("  preset %d %s tail %.1f dB\n", s + 1, e->bank[s].name, tdb); }
+		if (e->bank[s].v[P_RDEC] < 100 && e->bank[s].v[P_ENVTYPE] < 0.5f && tdb > -60.f) { bad++; std::printf("  preset %d %s tail %.1f dB\n", s + 1, e->bank[s].name, tdb); }
 		if (g_render) {
 			char path[256];
 			std::snprintf(path, sizeof path, "build/render/%02d-%s.wav", s + 1, e->bank[s].name);

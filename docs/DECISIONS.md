@@ -25,7 +25,8 @@ Ambiguities in the spec or the manuals, and how they were settled. Estimated num
 - **Noise input to the resonators is scaled by each partial's bandwidth**, so a long object decay does not make noise-driven (bowed, blown) sounds explode in level. A mallet strike is not scaled this way.
 - **Level calibration per object** (`objGain` in `Plink.hpp`): each object type's default hit peaks at about 5 V.
 - **Marimba ratios:** 1 : 4 : 10, then the beam series scaled to continue from 10 (17.4, 25.9, 36.2 …). The spec's formula said "×10/8.933"; the intended result, given in its first draft as 17.4, 26.0, 36.5, is what was implemented.
-- **Exciter leak:** a small direct click from the mallet reaches the output so very short decays still have an attack.
+- **Exciter leak:** a small direct click from the mallet (the pulse at unit peak, -30 dB) reaches the output so very short decays still have an attack.
+- **Level calibration of sustained sounds:** AHR presets (Bowed String, Rain Plate, Wind Tube, Shaker) were measured with a 1 s gate, and noise-driven presets use the median of eight random seeds.
 - **Spectral tilt:** each partial's input is scaled by ratio^-0.5, so higher partials are a little quieter at the strike, as in real struck objects.
 - **SELECT** is an ordinary knob read as relative steps (turning it by one unit moves one item), so it never needs re-centring in practice.
 - **LOAD preview** loads the browsed preset into the knobs straight away (so you hear it on the next hit); any other button cancels and restores the sound you had.
