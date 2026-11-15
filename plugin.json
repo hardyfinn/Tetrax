@@ -1,0 +1,35 @@
+{
+  "slug": "Tetrax",
+  "name": "Tetrax",
+  "version": "2.0.0",
+  "license": "GPL-3.0-or-later",
+  "brand": "Tetrax",
+  "author": "Hardy",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "https://github.com/hardyfinn/tetrax",
+  "manualUrl": "https://github.com/hardyfinn/tetrax/blob/main/docs/MANUAL.md",
+  "sourceUrl": "https://github.com/hardyfinn/tetrax",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "TETRA",
+      "name": "TETRA Four-channel function generator",
+      "description": "4 channel function generator: envelope (AD, AHR), cycling function, burst and LFO with random vacillator mode, channels linked in a ring.",
+      "tags": ["Envelope generator", "Function generator", "LFO", "Random", "Polyphonic"]
+    },
+    {
+      "slug": "TETRAX",
+      "name": "TETRA X End-of-stage expander",
+      "description": "Expander for TETRA: end of rise and end of fall gates for each channel. Place directly to the right of TETRA.",
+      "tags": ["Expander", "Logic", "Utility"]
+    },
+    {
+      "slug": "PLINK",
+      "name": "PLINK Modal percussion voice",
+      "description": "Physical model percussion voice: mallet and noise exciter striking a modal string, beam, marimba bar, drum, membrane or plate. Preset step kits, morph and randomize.",
+      "tags": ["Drum", "Physical modeling", "Synth voice", "Polyphonic"]
+    }
+  ]
+}
