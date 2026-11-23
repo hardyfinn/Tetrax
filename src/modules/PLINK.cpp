@@ -88,7 +88,7 @@ struct PLINK : Module {
 		configParam(YATT_PARAM, -1.f, 1.f, 1.f, "Y CV attenuverter", "%", 0.f, 100.f);
 		configParam(MODATT_PARAM, -1.f, 1.f, 1.f, "MOD CV attenuverter", "%", 0.f, 100.f);
 		configParam(DECAYATT_PARAM, -1.f, 1.f, 1.f, "Decay CV attenuverter", "%", 0.f, 100.f);
-		configParam(GAIN_PARAM, -20.f, 40.f, 0.f, "Output gain", " dB");
+		configParam(GAIN_PARAM, -20.f, 40.f, 0.f, "Output gain", " dB")->randomizeEnabled = false;
 		configParam(SAT_PARAM, 0.f, 60.f, 0.f, "Saturation", " dB");
 		configParam(CRUSH_PARAM, 0.f, 10.f, 0.f, "Bitcrusher (0 off, 1 = 10 bit … 10 = 1 bit)");
 		getParamQuantity(CRUSH_PARAM)->snapEnabled = true;

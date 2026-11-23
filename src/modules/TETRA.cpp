@@ -58,7 +58,7 @@ struct TETRA : Module {
 			mk(RISE1_PARAM + c * PS, 0, "Rise");
 			mk(FALL1_PARAM + c * PS, 1, "Fall");
 			mk(SHAPE1_PARAM + c * PS, 2, "Shape");
-			configParam(LEVEL1_PARAM + c * PS, 0.f, 1.f, 1.f, "Level " + n, "%", 0.f, 100.f);
+			configParam(LEVEL1_PARAM + c * PS, 0.f, 1.f, 1.f, "Level " + n, "%", 0.f, 100.f)->randomizeEnabled = false;
 			configButton(MODE1_PARAM + c * PS, "Mode " + n + " (AD, AHR, cycle, burst, LFO)");
 			configButton(ALT1_PARAM + c * PS, "Alternate " + n + " (mirrored curves, ALT burst, LFV random)");
 			configButton(LINK1_PARAM + c * PS, "Link " + n + " (off, TRIG, end of rise, end of fall of the channel to the left)");
